@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="..\css\hierarchyselectpicker.css">
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="..\js\hierarchyselectpicker.js"></script>
+</head>
+<body>
+<h3> Hierarchical Mode
+</h3>
+<div class="example">
+<select class="menu-b"></select>
+</div>
+<pre><code>
+$(".menu-b").hierarchyselectpicker( {inline: false, data: [
+  {
+    label:"book 1",
+    value:1
+  },
+  {
+    label:"Fantasy",
+    subitems:[{
+      label:"Book 2",
+      value:2
+    },
+    {
+      label:"Science fantasy",
+      subitems:[{
+        label:"Book 3",
+        value:4
+      }]
+    },
+    {
+      label:"Book 4",
+      value:3
+    }]
+  }
+  ]});
+</code></pre>
+
+
+<h3> Inline Mode
+</h3>
+<div class="example">
+<select class="menu-a">
+  <option>Book 9</option>
+  <option>Book 10</option>
+  <option>Book 11</option>
+	<optgroup label="Fantasy">
+		<option>Book 1</option>
+	</optgroup>
+  <optgroup label="Science fantasy">
+    <option>Book 2</option>
+    <option>Book 3</option>
+    <option>Book 4</option>
+  </optgroup>
+  <option>Book 5</option>
+	<optgroup label="Comedy">
+		<option>Book 6</option>
+		<option>Book 7</option>
+		<option>Book 8</option>
+	</optgroup>
+</select>
+</div>
+<pre><code>
+    $(".menu-a").hierarchyselectpicker( {inline: true})
+</code></pre>
+<p>
+<style>
+.example {
+    position: relative;
+    padding: 1rem;
+    margin: 1rem -15px 0;
+    border: solid #f7f7f9;
+    border-width: .2rem 0 0;
+}
+</style>
+
+<script type="text/javascript">
+
+	window.onload = function(){
+    $(".menu-a").hierarchyselectpicker( {inline: true})
+		$(".menu-b").hierarchyselectpicker( {inline: false, data: [
+      {
+        label:"book 1",
+        value:1
+      },
+      {
+        label:"Fantasy",
+        subitems:[{
+          label:"Book 2",
+          value:2
+        },
+        {
+          label:"Science fantasy",
+          subitems:[{
+            label:"Book 3",
+            value:4
+          }]
+        },
+        {
+          label:"Book 4",
+          value:3
+        }]
+      }
+      ]});
+	}
+</script>
+</body>
+</html>
